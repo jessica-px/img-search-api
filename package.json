@@ -4,6 +4,7 @@
   "main": "server.js",
   "author": "Jessica Peck",
   "license": "MIT",
+  "repository": "https://github.com/jessypeck/img-search-api.git",
   "dependencies": {
     "express": "^4.16.3",
     "mongodb": "^3.1.0-beta4",
