@@ -1,0 +1,13 @@
+{
+  "name": "img-search",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Jessica Peck",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongodb": "^3.1.0-beta4",
+    "nodemon": "^1.17.4",
+    "request": "^2.86.0"
+  }
+}
