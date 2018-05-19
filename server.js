@@ -4,7 +4,7 @@ const https = require('https');
 
 const app = express();
 //const localport = 8080;
-const port = process.env.port;
+const port = process.env.PORT;
 
 // Google Search API
 const apiKey = 'AIzaSyDT6vGJtBx41vPPbuBbu6Y9NW6XVBDgxOQ';
