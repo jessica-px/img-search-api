@@ -15,14 +15,15 @@ const googleURI = 'https://www.googleapis.com/customsearch/v1?key=' + apiKey +
 let db;
 let dbCollection;
 const MongoClient = require('mongodb').MongoClient;
-const dbUser = 'admin';
-const dbPassword = 'imgSearchPw';
-const mongoUrl = 'mongodb://' + dbUser + ':'+  dbPassword + '@ds157599.mlab.com:57599/img-search';
 //const localMongoUrl = "mongodb://localhost:27017/";
+
+const mongoUser = 'admin';
+const mongoPw = 'imgSearchPw';
+const mongoUrl = 'mongodb://' + mongoUser + ':' + mongoPw + '@ds157599.mlab.com:57599/img-search';
 
 MongoClient.connect(mongoUrl, (err, client) => {
     if (err) throw err;
-    db = client.db('imgSearch');
+    db = client.db('img-search');
     console.log("Connecting to database '"+ db.s.databaseName +"'...")
     dbCollection = db.collection('recentSearches');
     console.log("Using collection '" + dbCollection.s.name + "'...");
