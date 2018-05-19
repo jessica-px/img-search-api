@@ -3,13 +3,13 @@ const request = require('request');
 const https = require('https');
 
 const app = express();
-const port = process.env.port || 8080;
+//const localport = 8080;
+const port = process.env.port;
 
 // Google Search API
 const apiKey = 'AIzaSyDT6vGJtBx41vPPbuBbu6Y9NW6XVBDgxOQ';
 const apiId = '001423376409891962792:fbkq6pjo3ky';
-const googleURI = 'https://www.googleapis.com/customsearch/v1?key=' + apiKey + 
-'&cx=' + apiId;
+const googleURI = 'https://www.googleapis.com/customsearch/v1?key=' + apiKey + '&cx=' + apiId;
 
 // Setup MongoDB
 let db;
@@ -30,7 +30,7 @@ MongoClient.connect(mongoUrl, (err, client) => {
 })
 
 // Link to build directory
-app.use(express.static (__dirname + '/public/'));
+//app.use(express.static (__dirname + '/public/'));
 
 // Initialize
 app.listen(port);
