@@ -4,7 +4,8 @@ const https = require('https');
 
 const app = express();
 //const localport = 8080;
-const port = process.env.PORT;
+const port = process.env.PORT || 8080;
+const path = require('path');
 
 // Google Search API
 const apiKey = 'AIzaSyDT6vGJtBx41vPPbuBbu6Y9NW6XVBDgxOQ';
@@ -29,9 +30,6 @@ MongoClient.connect(mongoUrl, (err, client) => {
     console.log("Using collection '" + dbCollection.s.name + "'...");
 })
 
-// Link to build directory
-//app.use(express.static (__dirname + '/public/'));
-
 // Initialize
 app.listen(port);
 console.log('Listening on port ' + port + '...');
@@ -48,6 +46,12 @@ const errorHandler = (res, reason, message, code) => {
     console.log("ERROR: " + reason);
     res.status(code || 500).json ({"error": message});
 }
+
+// Help Page
+app.get("/help", (req, res) => {
+    res.sendFile(path.join(__dirname + "/public/help.html"));
+})
+
 
 // Get images
 app.get("/api/search/:searchQuery", (req, res) => {
